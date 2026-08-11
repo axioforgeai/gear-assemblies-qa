@@ -1,6 +1,6 @@
 model_id,qa_id,package_id,gt_answer
 Model02,QA01,Model02_01_Hidden,16
-Model02,QA02,Model02_02_Hidden,6
+Model02,QA02,Model02_02_Hidden,0
 Model02,QA03,Model02_03_Hidden,4
 Model03,QA01,Model03_01_Hidden,6
 Model03,QA02,Model03_02_Hidden,80
