@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blinded Qwen3-VL Plus evaluation of 33 complete CAD gear assemblies">
+  <title>Qwen3-VL Plus Gear Assemblies Evaluation</title>
+  <style>
+    :root { --ink:#16283e; --blue:#2068a4; --blue-dark:#123b61; --paper:#ffffff; --wash:#f3f7fa; --line:#c9d5df; --muted:#5c6874; --accent:#e58b31; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--wash); font:16px/1.62 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:3px; }
+    .masthead { background:linear-gradient(120deg,var(--blue-dark),#245e8b 72%,#3478aa); color:white; padding:48px 24px 42px; }
+    .masthead-inner, main, footer { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .eyebrow { margin:0 0 8px; color:#bcd7eb; font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { max-width:850px; margin:0; font-size:clamp(2rem,5vw,3.35rem); line-height:1.08; letter-spacing:-.035em; }
+    .subtitle { max-width:800px; margin:16px 0 0; color:#e2edf5; font-size:1.08rem; }
+    nav { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    nav a { border:1px solid rgba(255,255,255,.38); border-radius:999px; padding:7px 13px; color:white; text-decoration:none; font-size:.9rem; }
+    nav a:hover { background:rgba(255,255,255,.12); }
+    .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:-24px auto 26px; position:relative; width:min(1050px,calc(100% - 40px)); }
+    .metric { min-height:104px; display:flex; flex-direction:column; justify-content:center; background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:7px; box-shadow:0 8px 24px rgba(22,40,62,.09); padding:16px 18px; }
+    .metric strong { font-size:1.65rem; line-height:1.15; color:var(--blue-dark); }
+    .metric span { color:var(--muted); font-size:.84rem; margin-top:6px; }
+    main { background:var(--paper); border:1px solid var(--line); border-radius:8px; box-shadow:0 10px 30px rgba(22,40,62,.06); padding:clamp(24px,5vw,60px); margin-bottom:38px; overflow-wrap:anywhere; }
+    h2 { margin:2.2rem 0 .75rem; color:var(--blue-dark); font-size:1.65rem; line-height:1.2; border-bottom:2px solid #e3ebf1; padding-bottom:.45rem; }
+    h3 { color:var(--blue); }
+    p { max-width:90ch; }
+    code { background:#edf2f6; border-radius:4px; padding:.1em .3em; font-size:.92em; }
+    .table-wrap { overflow:auto; margin:1rem 0 1.7rem; border:1px solid var(--line); border-radius:6px; }
+    table { width:100%; border-collapse:collapse; font-size:.9rem; background:white; }
+    th { position:sticky; top:0; background:var(--blue-dark); color:white; text-align:left; white-space:nowrap; }
+    th,td { padding:10px 12px; border-bottom:1px solid #dce4ea; vertical-align:top; }
+    tbody tr:nth-child(even) { background:#f7f9fb; }
+    tbody tr:hover { background:#eef5fa; }
+    footer { color:var(--muted); font-size:.83rem; padding:0 0 36px; overflow-wrap:anywhere; }
+    @media (max-width:680px) { .masthead { padding-top:32px; } main { width:calc(100% - 20px); padding:22px 18px; } .metrics { width:calc(100% - 20px); } }
+    @media print { body { background:white; } .masthead { background:white; color:var(--ink); padding:18px 0; } .subtitle,.eyebrow { color:var(--muted); } nav { display:none; } .metrics { margin:10px auto; } main { border:0; box-shadow:none; padding:0; } .table-wrap { overflow:visible; } th { color:var(--ink); background:#e9eef2; } a { color:inherit; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="eyebrow">Gear Assemblies QA · Base packages only · 2026-08-11</p>
+      <h1>Qwen3-VL Plus Gear Assemblies Evaluation</h1>
+      <p class="subtitle">Blinded Qwen3-VL Plus evaluation of 33 complete CAD gear assemblies</p>
+      <nav aria-label="Report formats"><a href="README.md">Markdown</a><a href="qwen3_vl_plus_comprehensive_evaluation_report.pdf">PDF</a><a href="incorrect-answer-audit.html">Incorrect-answer audit</a><a href="incorrect-answer-audit.csv">Audit CSV</a></nav>
+    </div>
+  </header>
+  <section class="metrics" aria-label="Headline metrics"><div class="metric"><strong>15.15%</strong><span>Accuracy</span></div><div class="metric"><strong>84.85%</strong><span>Error rate</span></div><div class="metric"><strong>5 / 33</strong><span>Exact answers</span></div><div class="metric"><strong>136,043</strong><span>Tokens</span></div><div class="metric"><strong>1.98¢</strong><span>List-price estimate</span></div></section>
+  <main><h2 id="abstract">Abstract</h2>
+<p>This blinded evaluation tested qwen3-vl-plus on 33 non-hidden base packages, each represented by one question and six CAD views. The model answered 5 of 33 questions correctly, for 15.15% accuracy and 84.85% error. The 95% Wilson interval for accuracy was 6.7-30.9%. The run consumed 136,043 tokens and corresponds to a published-list-price estimate of USD 0.019766571.</p>
+<h2 id="methods">Methods</h2>
+<p>The source was repository commit 360772e84d93f63010c806fc0faf21654bb8c4fc. Only top-level ModelNN_QANN directories were staged. Hidden packages, dot-directories, ground truth, and repository-level files were excluded. Each request used six views, temperature 0, a 128-token output limit, and thinking disabled through <a href="https://dashscope-us.aliyuncs.com/compatible-mode/v1">https://dashscope-us.aliyuncs.com/compatible-mode/v1</a>. Predictions and answers were handed to separate blind agents. Numeric scoring required one number within tolerance 1e-9; the discrete item used normalized exact matching.</p>
+<p>The question taxonomy was descriptive and post hoc. Accuracy and error rates were computed per category, with Wilson intervals for binomial uncertainty. Numeric categories also received mean absolute and mean absolute percentage error summaries.</p>
+<h2 id="results">Results</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Question type</th>
+<th>n</th>
+<th>Correct</th>
+<th>Accuracy</th>
+<th>Error rate</th>
+<th>95% Wilson CI</th>
+<th>MAE</th>
+<th>MAPE</th>
+</tr></thead><tbody>
+<tr>
+<td>Transmission ratio</td>
+<td>10</td>
+<td>0</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>0.0-27.8%</td>
+<td>7.735</td>
+<td>53.72%</td>
+</tr>
+<tr>
+<td>Gear tooth count</td>
+<td>13</td>
+<td>0</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>0.0-22.8%</td>
+<td>18.077</td>
+<td>38.15%</td>
+</tr>
+<tr>
+<td>Component count</td>
+<td>8</td>
+<td>4</td>
+<td>50.00%</td>
+<td>50.00%</td>
+<td>21.5-78.5%</td>
+<td>0.875</td>
+<td>26.04%</td>
+</tr>
+<tr>
+<td>Axis angle</td>
+<td>1</td>
+<td>1</td>
+<td>100.00%</td>
+<td>0.00%</td>
+<td>20.7-100.0%</td>
+<td>0.000</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>Gear type</td>
+<td>1</td>
+<td>0</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>0.0-79.3%</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody></table></div>
+<p>The 32 numeric items produced 21 underestimates, 6 overestimates, and 5 exact answers. All transmission-ratio and tooth-count questions were wrong. All three planet-gear quantity questions were correct, while four of five broader inventory questions were wrong.</p>
+<h2 id="token-and-cost-accounting">Token and cost accounting</h2>
+<p>Provider records contained 135,801 prompt tokens, including 132,396 image tokens and 3,405 text tokens, plus 242 completion tokens. No cached tokens were reported. All requests stayed below 32K input tokens. At published US or Global list rates of USD 0.143 per million input tokens and USD 1.434 per million output tokens, the estimate is USD 0.019419543 for input and USD 0.000347028 for output, totaling USD 0.019766571. This is not a verified invoice.</p>
+<h2 id="discussion-and-limitations">Discussion and limitations</h2>
+<p>The evaluation shows a sharp separation between salient repeated-object counting and exact mechanical inference. Tooth enumeration and ratio derivation failed across all tested items. The study used one deterministic run, one alias, one prompt, one commit, and no hidden variants. Reasoning was suppressed, so error mechanisms cannot be decomposed.</p>
+<h2 id="references">References</h2>
+<p>[1] Alibaba Cloud. Qwen-VL compatible with OpenAI. <a href="https://www.alibabacloud.com/help/en/model-studio/qwen-vl-compatible-with-openai">https://www.alibabacloud.com/help/en/model-studio/qwen-vl-compatible-with-openai</a></p>
+<p>[2] Alibaba Cloud. Model Studio model pricing. <a href="https://www.alibabacloud.com/help/en/model-studio/model-pricing">https://www.alibabacloud.com/help/en/model-studio/model-pricing</a></p>
+<p>[3] Alibaba Cloud. API endpoint. <a href="https://www.alibabacloud.com/help/en/model-studio/base-url">https://www.alibabacloud.com/help/en/model-studio/base-url</a></p>
+<p>[4] axioforgeai. gear-assemblies-qa, commit 360772e84d93f63010c806fc0faf21654bb8c4fc. <a href="https://github.com/axioforgeai/gear-assemblies-qa/tree/360772e84d93f63010c806fc0faf21654bb8c4fc">https://github.com/axioforgeai/gear-assemblies-qa/tree/360772e84d93f63010c806fc0faf21654bb8c4fc</a></p></main>
+  <footer>Evaluation source commit <code>360772e84d93f63010c806fc0faf21654bb8c4fc</code>. Hidden packages and dot-prefixed paths were excluded from model input.</footer>
+</body>
+</html>
