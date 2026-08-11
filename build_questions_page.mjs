@@ -1,13 +1,111 @@
 #!/usr/bin/env node
 
-import { writeFileSync } from "node:fs";
+import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const OUTPUT = join(ROOT, "index.html");
 
-function documentHtml() {
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let quoted = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (quoted) {
+      if (character === '"' && text[index + 1] === '"') {
+        field += '"';
+        index += 1;
+      } else if (character === '"') {
+        quoted = false;
+      } else {
+        field += character;
+      }
+      continue;
+    }
+    if (character === '"') quoted = true;
+    else if (character === ",") {
+      row.push(field);
+      field = "";
+    } else if (character === "\n") {
+      row.push(field.replace(/\r$/, ""));
+      rows.push(row);
+      row = [];
+      field = "";
+    } else field += character;
+  }
+  if (field.length || row.length) rows.push([...row, field.replace(/\r$/, "")]);
+  const [headers = [], ...dataRows] = rows;
+  return dataRows
+    .filter((dataRow) => dataRow.some((value) => value.trim()))
+    .map((dataRow) => Object.fromEntries(headers.map((header, index) => [header, dataRow[index] || ""])));
+}
+
+function basePackageId(answer) {
+  return `${answer.model_id}_${answer.qa_id}`;
+}
+
+function hiddenPackageId(answer) {
+  if (!/^Model\d{2}_\d{2}_Hidden$/.test(answer.package_id || "")) {
+    throw new Error(`Invalid hidden package ID: ${answer.package_id || "(missing)"}`);
+  }
+  return answer.package_id;
+}
+
+function compareQuestions(left, right) {
+  return left.modelId.localeCompare(right.modelId, undefined, { numeric: true })
+    || left.qaId.localeCompare(right.qaId, undefined, { numeric: true })
+    || left.variant.localeCompare(right.variant);
+}
+
+function loadQuestionSet({ directory, directoryPattern, idForAnswer, relativePrefix, variant }) {
+  const answers = parseCsv(readFileSync(join(directory, "ground_truth_answers.csv"), "utf8"));
+  const packageDirectories = new Set(readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && directoryPattern.test(entry.name))
+    .map((entry) => entry.name));
+  return answers.map((answer) => {
+    const id = idForAnswer(answer);
+    if (!packageDirectories.has(id)) throw new Error(`Answer key references missing package: ${id}`);
+    const prompt = JSON.parse(readFileSync(join(directory, id, "prompt.json"), "utf8"));
+    if (!prompt.question || !Array.isArray(prompt.reference_images)) throw new Error(`Invalid prompt package: ${id}`);
+    return {
+      id,
+      modelId: answer.model_id,
+      qaId: answer.qa_id,
+      variant,
+      question: prompt.question,
+      answer: answer.gt_answer,
+      images: prompt.reference_images.map((image) => ({
+        label: image.label,
+        path: `${relativePrefix}${id}/${image.path}`,
+      })),
+    };
+  });
+}
+
+function loadQuestions() {
+  return [
+    ...loadQuestionSet({
+      directory: ROOT,
+      directoryPattern: /^Model\d{2}_QA\d{2}$/,
+      idForAnswer: basePackageId,
+      relativePrefix: "",
+      variant: "Base",
+    }),
+    ...loadQuestionSet({
+      directory: join(ROOT, "hidden"),
+      directoryPattern: /^Model\d{2}_\d{2}_Hidden$/,
+      idForAnswer: hiddenPackageId,
+      relativePrefix: "hidden/",
+      variant: "Hidden",
+    }),
+  ].sort(compareQuestions);
+}
+
+function documentHtml(questions) {
+  const data = JSON.stringify(questions).replaceAll("<", "\\u003c");
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -287,7 +385,7 @@ function documentHtml() {
     <div id="questions"></div>
   </main>
   <script>
-    const state = { questions: [] };
+    const questions = ${data};
     const search = document.querySelector("#search");
     const modelFilter = document.querySelector("#model-filter");
     const versionFilter = document.querySelector("#version-filter");
@@ -298,107 +396,9 @@ function documentHtml() {
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;",
     })[character]);
 
-    function parseCsv(text) {
-      const rows = [];
-      let row = [];
-      let field = "";
-      let quoted = false;
-      for (let index = 0; index < text.length; index += 1) {
-        const character = text[index];
-        if (quoted) {
-          if (character === '"' && text[index + 1] === '"') {
-            field += '"';
-            index += 1;
-          } else if (character === '"') {
-            quoted = false;
-          } else {
-            field += character;
-          }
-          continue;
-        }
-        if (character === '"') quoted = true;
-        else if (character === ",") {
-          row.push(field);
-          field = "";
-        } else if (character === "\\n") {
-          row.push(field.replace(/\\r$/, ""));
-          rows.push(row);
-          row = [];
-          field = "";
-        } else field += character;
-      }
-      if (field.length || row.length) rows.push(row.concat(field.replace(/\\r$/, "")));
-      const headers = rows.shift() || [];
-      return rows
-        .filter((dataRow) => dataRow.some((value) => value.trim()))
-        .map((dataRow) => Object.fromEntries(headers.map((header, index) => [header, dataRow[index] || ""])));
-    }
-
-    async function fetchText(path) {
-      const response = await fetch(path, { cache: "no-store" });
-      if (!response.ok) throw new Error("Could not load " + path + " (" + response.status + ").");
-      return response.text();
-    }
-
-    async function fetchJson(path) {
-      const response = await fetch(path, { cache: "no-store" });
-      if (!response.ok) throw new Error("Could not load " + path + " (" + response.status + ").");
-      return response.json();
-    }
-
-    function basePackageId(answer) {
-      return answer.model_id + "_" + answer.qa_id;
-    }
-
-    function hiddenPackageId(answer) {
-      if (!/^Model\\d{2}_\\d{2}_Hidden$/.test(answer.package_id || "")) {
-        throw new Error("Invalid hidden package ID: " + (answer.package_id || "(missing)"));
-      }
-      return answer.package_id;
-    }
-
-    function compareQuestions(left, right) {
-      return left.modelId.localeCompare(right.modelId, undefined, { numeric: true })
-        || left.qaId.localeCompare(right.qaId, undefined, { numeric: true })
-        || left.variant.localeCompare(right.variant);
-    }
-
-    async function loadQuestionSet(answerPath, relativePrefix, variant, idForAnswer) {
-      const answers = parseCsv(await fetchText(answerPath));
-      return Promise.all(answers.map(async (answer) => {
-        const id = idForAnswer(answer);
-        const prompt = await fetchJson(relativePrefix + id + "/prompt.json");
-        if (!prompt.question || !Array.isArray(prompt.reference_images)) {
-          throw new Error("Invalid prompt package: " + id);
-        }
-        return {
-          id,
-          modelId: answer.model_id,
-          qaId: answer.qa_id,
-          variant,
-          question: prompt.question,
-          answer: answer.gt_answer,
-          images: prompt.reference_images.map((image) => ({
-            label: image.label,
-            path: relativePrefix + id + "/" + image.path,
-          })),
-        };
-      }));
-    }
-
-    async function loadQuestions() {
-      const sets = await Promise.all([
-        loadQuestionSet("ground_truth_answers.csv", "", "Base", basePackageId),
-        loadQuestionSet("hidden/ground_truth_answers.csv", "hidden/", "Hidden", hiddenPackageId),
-      ]);
-      return sets.flat().sort(compareQuestions);
-    }
-
-    function populateModelFilter() {
-      const modelIds = [...new Set(state.questions.map((question) => question.modelId))];
-      modelFilter.insertAdjacentHTML("beforeend", modelIds.map((modelId) =>
-        '<option value="' + escapeHtml(modelId) + '">' + escapeHtml(modelId) + '</option>').join(""));
-    }
+    const modelIds = [...new Set(questions.map((question) => question.modelId))];
+    modelFilter.insertAdjacentHTML("beforeend", modelIds.map((modelId) =>
+      '<option value="' + escapeHtml(modelId) + '">' + escapeHtml(modelId) + '</option>').join(""));
 
     function imagesHtml(question) {
       return question.images.map((image) => '<figure>'
@@ -420,13 +420,13 @@ function documentHtml() {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedModel = modelFilter.value;
       const selectedVersion = versionFilter.value;
-      const filtered = state.questions.filter((question) => {
+      const filtered = questions.filter((question) => {
         const searchable = (question.id + " " + question.variant + " " + question.question + " " + question.answer).toLocaleLowerCase();
         return (!selectedModel || question.modelId === selectedModel)
           && (!selectedVersion || question.variant === selectedVersion)
           && (!query || searchable.includes(query));
       });
-      count.textContent = filtered.length + " of " + state.questions.length;
+      count.textContent = filtered.length + " of " + questions.length;
       if (!filtered.length) {
         container.innerHTML = '<p class="empty">No matching questions.</p>';
         return;
@@ -446,26 +446,12 @@ function documentHtml() {
     search.addEventListener("input", render);
     modelFilter.addEventListener("change", render);
     versionFilter.addEventListener("change", render);
-    count.textContent = "Loading";
-    container.innerHTML = '<p class="empty">Loading QA packages...</p>';
-
-    async function initialise() {
-      try {
-        state.questions = await loadQuestions();
-        populateModelFilter();
-        render();
-      } catch (error) {
-        count.textContent = "Unavailable";
-        container.innerHTML = '<p class="empty">Could not load the QA files. Start the local web server and reload this page.</p>';
-        console.error(error);
-      }
-    }
-
-    initialise();
+    render();
   </script>
 </body>
 </html>`;
 }
 
-writeFileSync(OUTPUT, documentHtml(), "utf8");
-console.log(`Wrote dynamic QA review page to ${OUTPUT}.`);
+const questions = loadQuestions();
+writeFileSync(OUTPUT, documentHtml(questions), "utf8");
+console.log(`Wrote ${OUTPUT} with ${questions.length} questions.`);
