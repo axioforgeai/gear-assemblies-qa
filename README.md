@@ -14,10 +14,9 @@ descriptions are intentionally not included.
   matching `hidden/ground_truth_answers.csv` answer key. For example,
   `Model02_01_Hidden` is the hidden version of the first QA for `Model02`.
 - `index.html`: static browser page for reviewing every question and its
-  ground-truth answer, including base and hidden variants. Open it directly in
-  a browser; no web server is needed.
-- `build_questions_page.mjs`: regenerates `index.html` from the local packages
-  and answer key.
+  ground-truth answer, including base and hidden variants. It dynamically
+  fetches the two answer-key CSV files and every package's `prompt.json` file.
+- `build_questions_page.mjs`: emits the dynamic `index.html` application.
 
 Every QA package contains the question in `prompt.json` and six PNG reference
 views of the corresponding complete assembly, all rendered without a ground
@@ -58,9 +57,23 @@ in `Model02_01_Hidden`. The exported base-package counts are:
 | `Model09` | 4 |
 | `Model10` | 1 |
 
-## Regenerate The Review Page
+## Run The Dynamic Review Page
 
-Use Node.js 22 or later after updating a package or the answer key:
+The page must be served over HTTP so its browser-side `fetch()` requests can
+read the CSV and JSON files. Start a local server:
+
+```powershell
+Set-Location C:\grabcad\gear_assemblies\github
+python -m http.server 8000 --bind 127.0.0.1
+```
+
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Do not open
+`index.html` with a `file:///` URL, because browsers block local file fetches.
+
+The page uses `cache: "no-store"`, so changing either
+`ground_truth_answers.csv` file or a package `prompt.json` only requires a
+browser reload. Run the generator below only after changing the page template
+in `build_questions_page.mjs`:
 
 ```powershell
 Set-Location C:\grabcad\gear_assemblies\github
