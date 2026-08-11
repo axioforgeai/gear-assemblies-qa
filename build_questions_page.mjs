@@ -168,7 +168,7 @@ function documentHtml(questions) {
 
     .toolbar {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+      grid-template-columns: minmax(0, 1fr) repeat(2, minmax(160px, 220px));
       gap: 12px;
       align-items: end;
       padding-bottom: 24px;
@@ -215,6 +215,20 @@ function documentHtml(questions) {
       font-size: 1.25rem;
       line-height: 1.25;
     }
+
+    .evaluation-protocol {
+      margin: 20px 0 0;
+      border-bottom: 1px solid #c8d0c8;
+      padding-bottom: 16px;
+    }
+
+    .evaluation-protocol ol {
+      max-width: 88ch;
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .evaluation-protocol li { margin: 8px 0; }
 
     .model-group { padding-top: 28px; }
 
@@ -350,7 +364,20 @@ function documentHtml(questions) {
       <label>Model
         <select id="model-filter"><option value="">All models</option></select>
       </label>
+      <label>Version
+        <select id="version-filter"><option value="">All versions</option><option value="Base">Base</option><option value="Hidden">Hidden</option></select>
+      </label>
     </section>
+    <details class="evaluation-protocol">
+      <summary>VLM evaluation protocol</summary>
+      <ol>
+        <li>Choose one package and read its <code>prompt.json</code>.</li>
+        <li>Send the exact question and the six listed reference images to the VLM in their listed order.</li>
+        <li>Keep the GT-answer CSV and this review page out of the VLM prompt.</li>
+        <li>Record the package ID, version, raw model answer, and scoring result separately.</li>
+        <li>Report Base and Hidden results separately, then compare paired QA IDs where both exist.</li>
+      </ol>
+    </details>
     <div class="summary-row">
       <h2>Questions</h2>
       <p id="count" class="count" aria-live="polite"></p>
@@ -361,6 +388,7 @@ function documentHtml(questions) {
     const questions = ${data};
     const search = document.querySelector("#search");
     const modelFilter = document.querySelector("#model-filter");
+    const versionFilter = document.querySelector("#version-filter");
     const count = document.querySelector("#count");
     const container = document.querySelector("#questions");
 
@@ -391,9 +419,12 @@ function documentHtml(questions) {
     function render() {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedModel = modelFilter.value;
+      const selectedVersion = versionFilter.value;
       const filtered = questions.filter((question) => {
         const searchable = (question.id + " " + question.variant + " " + question.question + " " + question.answer).toLocaleLowerCase();
-        return (!selectedModel || question.modelId === selectedModel) && (!query || searchable.includes(query));
+        return (!selectedModel || question.modelId === selectedModel)
+          && (!selectedVersion || question.variant === selectedVersion)
+          && (!query || searchable.includes(query));
       });
       count.textContent = filtered.length + " of " + questions.length;
       if (!filtered.length) {
@@ -414,6 +445,7 @@ function documentHtml(questions) {
 
     search.addEventListener("input", render);
     modelFilter.addEventListener("change", render);
+    versionFilter.addEventListener("change", render);
     render();
   </script>
 </body>

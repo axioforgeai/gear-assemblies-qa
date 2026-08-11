@@ -66,3 +66,30 @@ Use Node.js 22 or later after updating a package or the answer key:
 Set-Location C:\grabcad\gear_assemblies\github
 node .\build_questions_page.mjs
 ```
+
+## Evaluate With A VLM
+
+Evaluate the base and hidden packages as separate variants. A hidden package
+uses the same question and ground-truth answer as its base counterpart, but its
+reference images conceal the configured exterior components.
+
+1. Select one package folder. Use either `Model##_QA##/` for a complete
+   assembly or `hidden/Model##_##_Hidden/` for its hidden-parts variant.
+2. Read `prompt.json`, then send the exact `question` value and all six
+   `reference_images` to the VLM in the listed order. Preserve the image order
+   in every run.
+3. Do not send `ground_truth_answers.csv`, `index.html`, or any ground-truth
+   answer to the VLM. Those files are for scoring only.
+4. Save predictions in a separate result file with at least
+   `package_id`, `model_id`, `qa_id`, `variant`, `vlm_answer`, and `is_correct`
+   columns. Retain the raw VLM output as well as a normalized answer when
+   scoring.
+5. For numeric questions, parse the requested number and apply a declared
+   tolerance. For discrete choices, compare normalized values exactly. For
+   narrative answers, use a written rubric or a blinded human/judge-model
+   review. Record the scoring rule with the results.
+6. Report metrics separately for `Base` and `Hidden`, then compare the paired
+   QA IDs to measure the effect of removing the outer components.
+
+The static `index.html` page is a human review and scoring aid. It deliberately
+shows ground-truth answers, so it must not be used as the VLM input page.
