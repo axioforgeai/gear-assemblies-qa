@@ -1,0 +1,38 @@
+{
+  "question": "What is the transmission ratio of this gear train?",
+  "reference_images": [
+    {
+      "view": "iso_front_right_top",
+      "label": "Isometric front-right-top",
+      "path": "iso_front_right_top.png"
+    },
+    {
+      "view": "iso_front_left_top",
+      "label": "Isometric front-left-top",
+      "path": "iso_front_left_top.png"
+    },
+    {
+      "view": "iso_rear_right_top",
+      "label": "Isometric rear-right-top",
+      "path": "iso_rear_right_top.png"
+    },
+    {
+      "view": "front",
+      "label": "Front",
+      "path": "front.png"
+    },
+    {
+      "view": "top",
+      "label": "Top",
+      "path": "top.png"
+    },
+    {
+      "view": "left",
+      "label": "Left",
+      "path": "left.png"
+    }
+  ],
+  "render_settings": {
+    "ground_plane": false
+  }
+}
