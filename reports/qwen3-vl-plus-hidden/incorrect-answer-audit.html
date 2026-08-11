@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="All 20 hidden-package errors, their correct answers, and measured discrepancies">
+  <title>Qwen3-VL Plus Hidden Incorrect-Answer Audit</title>
+  <style>
+    :root { --ink:#16283e; --blue:#2068a4; --blue-dark:#123b61; --paper:#ffffff; --wash:#f3f7fa; --line:#c9d5df; --muted:#5c6874; --accent:#e58b31; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--wash); font:16px/1.62 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--blue); text-decoration-thickness:1px; text-underline-offset:3px; }
+    .masthead { background:linear-gradient(120deg,var(--blue-dark),#245e8b 72%,#3478aa); color:white; padding:48px 24px 42px; }
+    .masthead-inner, main, footer { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .eyebrow { margin:0 0 8px; color:#bcd7eb; font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { max-width:850px; margin:0; font-size:clamp(2rem,5vw,3.35rem); line-height:1.08; letter-spacing:-.035em; }
+    .subtitle { max-width:800px; margin:16px 0 0; color:#e2edf5; font-size:1.08rem; }
+    nav { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    nav a { border:1px solid rgba(255,255,255,.38); border-radius:999px; padding:7px 13px; color:white; text-decoration:none; font-size:.9rem; }
+    nav a:hover { background:rgba(255,255,255,.12); }
+    .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:-24px auto 26px; position:relative; width:min(1050px,calc(100% - 40px)); }
+    .metric { min-height:104px; display:flex; flex-direction:column; justify-content:center; background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:7px; box-shadow:0 8px 24px rgba(22,40,62,.09); padding:16px 18px; }
+    .metric strong { font-size:1.65rem; line-height:1.15; color:var(--blue-dark); }
+    .metric span { color:var(--muted); font-size:.84rem; margin-top:6px; }
+    main { background:var(--paper); border:1px solid var(--line); border-radius:8px; box-shadow:0 10px 30px rgba(22,40,62,.06); padding:clamp(24px,5vw,60px); margin-bottom:38px; overflow-wrap:anywhere; }
+    h2 { margin:2.2rem 0 .75rem; color:var(--blue-dark); font-size:1.65rem; line-height:1.2; border-bottom:2px solid #e3ebf1; padding-bottom:.45rem; }
+    h3 { color:var(--blue); }
+    p { max-width:90ch; }
+    code { background:#edf2f6; border-radius:4px; padding:.1em .3em; font-size:.92em; }
+    .table-wrap { overflow:auto; margin:1rem 0 1.7rem; border:1px solid var(--line); border-radius:6px; }
+    table { width:100%; border-collapse:collapse; font-size:.9rem; background:white; }
+    th { position:sticky; top:0; background:var(--blue-dark); color:white; text-align:left; white-space:nowrap; }
+    th,td { padding:10px 12px; border-bottom:1px solid #dce4ea; vertical-align:top; }
+    tbody tr:nth-child(even) { background:#f7f9fb; }
+    tbody tr:hover { background:#eef5fa; }
+    footer { color:var(--muted); font-size:.83rem; padding:0 0 36px; overflow-wrap:anywhere; }
+    @media (max-width:680px) { .masthead { padding-top:32px; } main { width:calc(100% - 20px); padding:22px 18px; } .metrics { width:calc(100% - 20px); } }
+    @media print { body { background:white; } .masthead { background:white; color:var(--ink); padding:18px 0; } .subtitle,.eyebrow { color:var(--muted); } nav { display:none; } .metrics { margin:10px auto; } main { border:0; box-shadow:none; padding:0; } .table-wrap { overflow:visible; } th { color:var(--ink); background:#e9eef2; } a { color:inherit; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="eyebrow">Gear Assemblies QA · Hidden packages only · 2026-08-11</p>
+      <h1>Qwen3-VL Plus Hidden Incorrect-Answer Audit</h1>
+      <p class="subtitle">All 20 hidden-package errors, their correct answers, and measured discrepancies</p>
+      <nav aria-label="Report formats"><a href="index.html">Evaluation report</a><a href="incorrect-answer-audit.md">Markdown</a><a href="qwen3_vl_plus_hidden_incorrect_answer_audit.pdf">PDF</a><a href="incorrect-answer-audit.csv">CSV</a></nav>
+    </div>
+  </header>
+  <section class="metrics" aria-label="Headline metrics"><div class="metric"><strong>20</strong><span>Incorrect answers</span></div><div class="metric"><strong>7</strong><span>Ratio errors</span></div><div class="metric"><strong>11</strong><span>Tooth-count errors</span></div><div class="metric"><strong>2</strong><span>Other errors</span></div></section>
+  <main><p>This companion audit lists all 20 incorrect hidden-package answers. Signed error is prediction minus correct answer.</p>
+<h2 id="transmission-ratio">Transmission ratio</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Package</th>
+<th>Subtype</th>
+<th>Question</th>
+<th>Predicted</th>
+<th>Correct</th>
+<th>Signed error</th>
+<th>Diagnostic</th>
+</tr></thead><tbody>
+<tr>
+<td>Model02_01_Hidden</td>
+<td>Other train or gearbox ratio</td>
+<td>what is the transmission ratio of the gear train?</td>
+<td>12</td>
+<td>16</td>
+<td>-4.00; -25.0%</td>
+<td>The transmission ratio was underestimated by 4 (25.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model03_01_Hidden</td>
+<td>Planetary ratio</td>
+<td>what is the transmission ratio of this planetary gear train? Assume the sun gear is the input, ring gear is fixed. And carrier is the output.</td>
+<td>3</td>
+<td>6</td>
+<td>-3.00; -50.0%</td>
+<td>The transmission ratio was underestimated by 3 (50.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model04_01_Hidden</td>
+<td>Planetary ratio</td>
+<td>what is the transmission ratio of this planetary gear? Assume sun input, ring fixed, carrier output. Round up to the nearest integer.</td>
+<td>4</td>
+<td>5</td>
+<td>-1.00; -20.0%</td>
+<td>The transmission ratio was underestimated by 1 (20.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model06_04_Hidden</td>
+<td>Other train or gearbox ratio</td>
+<td>What is the transmission ratio of this gear box?</td>
+<td>3</td>
+<td>2</td>
+<td>+1.00; +50.0%</td>
+<td>The transmission ratio was overestimated by 1 (50.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model08_03_Hidden</td>
+<td>Other train or gearbox ratio</td>
+<td>What the transmission ratio of this gear box? Round to the first decimal place.</td>
+<td>5.0</td>
+<td>3.6</td>
+<td>+1.40; +38.9%</td>
+<td>The transmission ratio was overestimated by 1.4 (38.9% of the correct value).</td>
+</tr>
+<tr>
+<td>Model09_02_Hidden</td>
+<td>Other train or gearbox ratio</td>
+<td>What is the transmission ratio of the gear box? Round to the first decimal place.</td>
+<td>3.0</td>
+<td>5.4</td>
+<td>-2.40; -44.4%</td>
+<td>The transmission ratio was underestimated by 2.4 (44.4% of the correct value).</td>
+</tr>
+<tr>
+<td>Model10_01_Hidden</td>
+<td>Other train or gearbox ratio</td>
+<td>what is the transmission ratio of this gear train?</td>
+<td>1</td>
+<td>32</td>
+<td>-31.00; -96.9%</td>
+<td>The transmission ratio was underestimated by 31 (96.9% of the correct value).</td>
+</tr>
+</tbody></table></div>
+<h2 id="gear-tooth-count">Gear tooth count</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Package</th>
+<th>Subtype</th>
+<th>Question</th>
+<th>Predicted</th>
+<th>Correct</th>
+<th>Signed error</th>
+<th>Diagnostic</th>
+</tr></thead><tbody>
+<tr>
+<td>Model03_02_Hidden</td>
+<td>Ring gear teeth</td>
+<td>What is the tooth number of the ring gear?</td>
+<td>72</td>
+<td>80</td>
+<td>-8.00; -10.0%</td>
+<td>The tooth count was underestimated by 8 (10.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model03_03_Hidden</td>
+<td>Sun gear teeth</td>
+<td>What is tooth number of the sun gear?</td>
+<td>12</td>
+<td>20</td>
+<td>-8.00; -40.0%</td>
+<td>The tooth count was underestimated by 8 (40.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model04_02_Hidden</td>
+<td>Ring gear teeth</td>
+<td>What is the tooth number of the ring gear?</td>
+<td>48</td>
+<td>65</td>
+<td>-17.00; -26.2%</td>
+<td>The tooth count was underestimated by 17 (26.2% of the correct value).</td>
+</tr>
+<tr>
+<td>Model04_03_Hidden</td>
+<td>Sun gear teeth</td>
+<td>What is tooth number of the sun gear?</td>
+<td>24</td>
+<td>16</td>
+<td>+8.00; +50.0%</td>
+<td>The tooth count was overestimated by 8 (50.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model04_04_Hidden</td>
+<td>Planet gear teeth</td>
+<td>What is the tooth number of planet gear?</td>
+<td>24</td>
+<td>34</td>
+<td>-10.00; -29.4%</td>
+<td>The tooth count was underestimated by 10 (29.4% of the correct value).</td>
+</tr>
+<tr>
+<td>Model06_02_Hidden</td>
+<td>Smaller gear teeth</td>
+<td>What the tooth number of the smaller gear?</td>
+<td>12</td>
+<td>25</td>
+<td>-13.00; -52.0%</td>
+<td>The tooth count was underestimated by 13 (52.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model06_03_Hidden</td>
+<td>Larger gear teeth</td>
+<td>What is the tooth number of the larger gear?</td>
+<td>30</td>
+<td>50</td>
+<td>-20.00; -40.0%</td>
+<td>The tooth count was underestimated by 20 (40.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model08_01_Hidden</td>
+<td>Smaller gear teeth</td>
+<td>what the tooth number of the smaller gear?</td>
+<td>12</td>
+<td>29</td>
+<td>-17.00; -58.6%</td>
+<td>The tooth count was underestimated by 17 (58.6% of the correct value).</td>
+</tr>
+<tr>
+<td>Model08_02_Hidden</td>
+<td>Larger gear teeth</td>
+<td>what the tooth number of the larger gear?</td>
+<td>60</td>
+<td>105</td>
+<td>-45.00; -42.9%</td>
+<td>The tooth count was underestimated by 45 (42.9% of the correct value).</td>
+</tr>
+<tr>
+<td>Model09_01_Hidden</td>
+<td>Sun gear teeth</td>
+<td>What is the tooth number of the sun gear?</td>
+<td>24</td>
+<td>17</td>
+<td>+7.00; +41.2%</td>
+<td>The tooth count was overestimated by 7 (41.2% of the correct value).</td>
+</tr>
+<tr>
+<td>Model09_03_Hidden</td>
+<td>Ring gear teeth</td>
+<td>What is the tooth number of the ring gear?</td>
+<td>48</td>
+<td>75</td>
+<td>-27.00; -36.0%</td>
+<td>The tooth count was underestimated by 27 (36.0% of the correct value).</td>
+</tr>
+</tbody></table></div>
+<h2 id="component-count">Component count</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Package</th>
+<th>Subtype</th>
+<th>Question</th>
+<th>Predicted</th>
+<th>Correct</th>
+<th>Signed error</th>
+<th>Diagnostic</th>
+</tr></thead><tbody>
+<tr>
+<td>Model06_01_Hidden</td>
+<td>Assembly inventory count</td>
+<td>How many bearings are there is in this gearbox?</td>
+<td>4</td>
+<td>2</td>
+<td>+2.00; +100.0%</td>
+<td>The component count was overestimated by 2 (100.0% of the correct value).</td>
+</tr>
+<tr>
+<td>Model07_01_Hidden</td>
+<td>Assembly inventory count</td>
+<td>How many gears are there in this gear box?</td>
+<td>3</td>
+<td>4</td>
+<td>-1.00; -25.0%</td>
+<td>The component count was underestimated by 1 (25.0% of the correct value).</td>
+</tr>
+</tbody></table></div>
+<h2 id="interpretation-limits">Interpretation limits</h2>
+<p>The diagnostics describe answer differences, not internal model mechanisms. Direct-answer generation suppressed reasoning, so the audit cannot distinguish visibility, perception, enumeration, kinematic setup, arithmetic, and output-selection errors.</p></main>
+  <footer>Evaluation source commit <code>360772e84d93f63010c806fc0faf21654bb8c4fc</code>. Only source-hidden packages were evaluated; the answer key and dot-prefixed paths remained outside model input.</footer>
+</body>
+</html>

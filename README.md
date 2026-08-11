@@ -20,6 +20,8 @@ descriptions are intentionally not included.
   and answer key.
 - `reports/qwen3-vl-plus-base/`: blinded Qwen3-VL Plus evaluation reports in
   Markdown, HTML, PDF, CSV, and JSON formats.
+- `reports/qwen3-vl-plus-hidden/`: corresponding source-hidden evaluation,
+  paired comparison, and incorrect-answer audit in the same formats.
 
 ## Live Review Page
 
@@ -45,7 +47,9 @@ hidden/Model02_01_Hidden/
   ...
 ```
 
-## Qwen3-VL Plus Evaluation
+## Qwen3-VL Plus Evaluations
+
+### Complete-assembly base packages
 
 A blinded evaluation of the 33 complete-assembly base packages produced 5/33
 exact answers (15.15% accuracy). Hidden packages, dot-prefixed paths, and the
@@ -59,6 +63,24 @@ a published-list-price estimate of USD 0.019766571.
 - [Incorrect-answer audit — HTML](reports/qwen3-vl-plus-base/incorrect-answer-audit.html)
 - [Incorrect-answer audit — PDF](reports/qwen3-vl-plus-base/qwen3_vl_plus_incorrect_answer_audit.pdf)
 - [Incorrect-answer audit — CSV](reports/qwen3-vl-plus-base/incorrect-answer-audit.csv)
+
+### Source-hidden packages
+
+The same blinded protocol was run on all 28 source-hidden variants after
+explicit authorization to transmit the 28 prompts and 168 staged images. The
+hidden answer key remained local. Qwen3-VL Plus produced 8/28 exact answers
+(28.57% accuracy; 71.43% error), using 116,838 tokens at an estimated published
+list price of USD 0.016984108. The report also compares these questions with
+their matched base-package results; two pairs have intentionally changed
+ground-truth targets.
+
+- [Hidden evaluation report — Markdown](reports/qwen3-vl-plus-hidden/README.md)
+- [Hidden evaluation report — HTML](reports/qwen3-vl-plus-hidden/index.html)
+- [Hidden evaluation report — PDF](reports/qwen3-vl-plus-hidden/qwen3_vl_plus_hidden_evaluation_report.pdf)
+- [Hidden incorrect-answer audit — Markdown](reports/qwen3-vl-plus-hidden/incorrect-answer-audit.md)
+- [Hidden incorrect-answer audit — HTML](reports/qwen3-vl-plus-hidden/incorrect-answer-audit.html)
+- [Hidden incorrect-answer audit — PDF](reports/qwen3-vl-plus-hidden/qwen3_vl_plus_hidden_incorrect_answer_audit.pdf)
+- [Hidden incorrect-answer audit — CSV](reports/qwen3-vl-plus-hidden/incorrect-answer-audit.csv)
 
 ## Naming
 
