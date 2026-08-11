@@ -43,37 +43,65 @@ function parseCsv(text) {
     .map((dataRow) => Object.fromEntries(headers.map((header, index) => [header, dataRow[index] || ""])));
 }
 
-function packageId(answer) {
+function basePackageId(answer) {
   return `${answer.model_id}_${answer.qa_id}`;
 }
 
-function compareAnswers(left, right) {
-  return left.model_id.localeCompare(right.model_id, undefined, { numeric: true })
-    || left.qa_id.localeCompare(right.qa_id, undefined, { numeric: true });
+function hiddenPackageId(answer) {
+  if (!/^Model\d{2}_\d{2}_Hidden$/.test(answer.package_id || "")) {
+    throw new Error(`Invalid hidden package ID: ${answer.package_id || "(missing)"}`);
+  }
+  return answer.package_id;
 }
 
-function loadQuestions() {
-  const answers = parseCsv(readFileSync(join(ROOT, "ground_truth_answers.csv"), "utf8")).sort(compareAnswers);
-  const packageDirectories = new Set(readdirSync(ROOT, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && /^Model\d{2}_QA\d{2}$/.test(entry.name))
+function compareQuestions(left, right) {
+  return left.modelId.localeCompare(right.modelId, undefined, { numeric: true })
+    || left.qaId.localeCompare(right.qaId, undefined, { numeric: true })
+    || left.variant.localeCompare(right.variant);
+}
+
+function loadQuestionSet({ directory, directoryPattern, idForAnswer, relativePrefix, variant }) {
+  const answers = parseCsv(readFileSync(join(directory, "ground_truth_answers.csv"), "utf8"));
+  const packageDirectories = new Set(readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && directoryPattern.test(entry.name))
     .map((entry) => entry.name));
   return answers.map((answer) => {
-    const id = packageId(answer);
+    const id = idForAnswer(answer);
     if (!packageDirectories.has(id)) throw new Error(`Answer key references missing package: ${id}`);
-    const prompt = JSON.parse(readFileSync(join(ROOT, id, "prompt.json"), "utf8"));
+    const prompt = JSON.parse(readFileSync(join(directory, id, "prompt.json"), "utf8"));
     if (!prompt.question || !Array.isArray(prompt.reference_images)) throw new Error(`Invalid prompt package: ${id}`);
     return {
       id,
       modelId: answer.model_id,
       qaId: answer.qa_id,
+      variant,
       question: prompt.question,
       answer: answer.gt_answer,
       images: prompt.reference_images.map((image) => ({
         label: image.label,
-        path: `${id}/${image.path}`,
+        path: `${relativePrefix}${id}/${image.path}`,
       })),
     };
   });
+}
+
+function loadQuestions() {
+  return [
+    ...loadQuestionSet({
+      directory: ROOT,
+      directoryPattern: /^Model\d{2}_QA\d{2}$/,
+      idForAnswer: basePackageId,
+      relativePrefix: "",
+      variant: "Base",
+    }),
+    ...loadQuestionSet({
+      directory: join(ROOT, "hidden"),
+      directoryPattern: /^Model\d{2}_\d{2}_Hidden$/,
+      idForAnswer: hiddenPackageId,
+      relativePrefix: "hidden/",
+      variant: "Hidden",
+    }),
+  ].sort(compareQuestions);
 }
 
 function documentHtml(questions) {
@@ -113,6 +141,7 @@ function documentHtml(questions) {
 
     .eyebrow,
     .package-id,
+    .variant,
     .count {
       margin: 0;
       color: #4d6058;
@@ -215,6 +244,8 @@ function documentHtml(questions) {
       gap: 16px;
       margin-bottom: 12px;
     }
+
+    .variant { color: #9b452b; }
 
     .question h3 {
       max-width: 78ch;
@@ -350,7 +381,7 @@ function documentHtml(questions) {
 
     function questionHtml(question) {
       return '<article class="question">'
-        + '<div class="question-topline"><p class="package-id">' + escapeHtml(question.id) + '</p></div>'
+        + '<div class="question-topline"><p class="package-id">' + escapeHtml(question.id) + '</p><p class="variant">' + escapeHtml(question.variant) + '</p></div>'
         + '<h3>' + escapeHtml(question.question) + '</h3>'
         + '<div class="answer"><span class="answer-label">GT answer</span><span class="answer-value">' + escapeHtml(question.answer) + '</span></div>'
         + '<details><summary>Reference views</summary><div class="image-grid">' + imagesHtml(question) + '</div></details>'
@@ -361,7 +392,7 @@ function documentHtml(questions) {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedModel = modelFilter.value;
       const filtered = questions.filter((question) => {
-        const searchable = (question.id + " " + question.question + " " + question.answer).toLocaleLowerCase();
+        const searchable = (question.id + " " + question.variant + " " + question.question + " " + question.answer).toLocaleLowerCase();
         return (!selectedModel || question.modelId === selectedModel) && (!query || searchable.includes(query));
       });
       count.textContent = filtered.length + " of " + questions.length;
@@ -376,7 +407,7 @@ function documentHtml(questions) {
         groups.set(question.modelId, group);
       }
       container.innerHTML = [...groups].map(([modelId, entries]) => '<section class="model-group">'
-        + '<div class="model-heading"><h2>' + escapeHtml(modelId) + '</h2><p class="count">' + entries.length + ' questions</p></div>'
+        + '<div class="model-heading"><h2>' + escapeHtml(modelId) + '</h2><p class="count">' + entries.length + ' packages</p></div>'
         + '<div class="question-list">' + entries.map(questionHtml).join("") + '</div>'
         + '</section>').join("");
     }

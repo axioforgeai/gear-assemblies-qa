@@ -1,17 +1,21 @@
 # Gear Assemblies QA Bank
 
-This repository is a clean, shareable copy of the base Vision QA reference
-packages for 10 CAD gear assemblies. It contains 33 question packages and a
-ground-truth answer key. The original STEP files, model descriptions, and
-hidden-parts QA augmentations are intentionally not included.
+This repository is a clean, shareable copy of the Vision QA reference packages
+for 10 CAD gear assemblies. It contains 33 base QA packages, 28 hidden-parts
+variants, and ground-truth answer keys. The original STEP files and model
+descriptions are intentionally not included.
 
 ## Contents
 
 - `Model##_QA##/`: one self-contained QA package per question.
-- `ground_truth_answers.csv`: the answer key with `model_id`, `qa_id`, and
-  `gt_answer` columns.
+- `ground_truth_answers.csv`: the base-package answer key with `model_id`,
+  `qa_id`, and `gt_answer` columns.
+- `hidden/`: 28 hidden-parts variants named `Model##_##_Hidden/`, with a
+  matching `hidden/ground_truth_answers.csv` answer key. For example,
+  `Model02_01_Hidden` is the hidden version of the first QA for `Model02`.
 - `index.html`: static browser page for reviewing every question and its
-  ground-truth answer. Open it directly in a browser; no web server is needed.
+  ground-truth answer, including base and hidden variants. Open it directly in
+  a browser; no web server is needed.
 - `build_questions_page.mjs`: regenerates `index.html` from the local packages
   and answer key.
 
@@ -28,13 +32,18 @@ Model01_QA01/
   front.png
   top.png
   left.png
+
+hidden/Model02_01_Hidden/
+  prompt.json
+  ...
 ```
 
 ## Naming
 
 `Model##` follows the one-indexed model order from the source assembly
 catalogue. `QA##` follows the one-indexed row order from that model's source
-QA bank. The exported package counts are:
+QA bank. Hidden variants omit `QA` from the folder name and add `_Hidden`, as
+in `Model02_01_Hidden`. The exported base-package counts are:
 
 | Model ID | QA packages |
 | --- | ---: |
