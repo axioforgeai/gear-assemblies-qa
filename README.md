@@ -19,6 +19,11 @@ descriptions are intentionally not included.
 - `build_questions_page.mjs`: regenerates `index.html` from the local packages
   and answer key.
 
+## Live Review Page
+
+Open the rendered static review page at
+[axioforgeai.github.io/gear-assemblies-qa](https://axioforgeai.github.io/gear-assemblies-qa/).
+
 Every QA package contains the question in `prompt.json` and six PNG reference
 views of the corresponding complete assembly, all rendered without a ground
 plane:
