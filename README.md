@@ -18,6 +18,8 @@ descriptions are intentionally not included.
   a browser; no web server is needed.
 - `build_questions_page.mjs`: regenerates `index.html` from the local packages
   and answer key.
+- `reports/qwen3-vl-plus-base/`: blinded Qwen3-VL Plus evaluation reports in
+  Markdown, HTML, PDF, CSV, and JSON formats.
 
 ## Live Review Page
 
@@ -42,6 +44,21 @@ hidden/Model02_01_Hidden/
   prompt.json
   ...
 ```
+
+## Qwen3-VL Plus Evaluation
+
+A blinded evaluation of the 33 complete-assembly base packages produced 5/33
+exact answers (15.15% accuracy). Hidden packages, dot-prefixed paths, and the
+answer key were excluded from model input. The run used 136,043 tokens and has
+a published-list-price estimate of USD 0.019766571.
+
+- [Comprehensive report — Markdown](reports/qwen3-vl-plus-base/README.md)
+- [Comprehensive report — HTML](reports/qwen3-vl-plus-base/index.html)
+- [Comprehensive report — PDF](reports/qwen3-vl-plus-base/qwen3_vl_plus_comprehensive_evaluation_report.pdf)
+- [Incorrect-answer audit — Markdown](reports/qwen3-vl-plus-base/incorrect-answer-audit.md)
+- [Incorrect-answer audit — HTML](reports/qwen3-vl-plus-base/incorrect-answer-audit.html)
+- [Incorrect-answer audit — PDF](reports/qwen3-vl-plus-base/qwen3_vl_plus_incorrect_answer_audit.pdf)
+- [Incorrect-answer audit — CSV](reports/qwen3-vl-plus-base/incorrect-answer-audit.csv)
 
 ## Naming
 
