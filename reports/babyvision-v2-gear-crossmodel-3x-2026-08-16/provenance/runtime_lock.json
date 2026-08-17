@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-16T17:26:52-04:00",
+  "python": "3.12.13",
+  "harbor": "0.21.0",
+  "docker": {
+    "server_version": "29.7.2",
+    "cpus": 16,
+    "memory_bytes": 16300789760,
+    "images": {
+      "sci3d-claude-code-2d:latest": "sha256:fb1dc90cde6d85521b5a3b3a7f2c1b84e77389990281ab124de42b27cbca336e",
+      "sci3d-scorer:latest": "sha256:75416d30185b4897b8345121da3a52018dd41b37261bbe37c5251b13195527d9"
+    }
+  },
+  "babyvision_repository": {
+    "head": "e93ce30fcd6aa0ce3ffa19f3d5ab6b7d42072a2f",
+    "working_diff_sha256": "272fc21a18382bfb575b37b519676a61ca47722148a868c05288e2a8d64cb105"
+  },
+  "gear_source_repository": {
+    "head": "3b5b2ed",
+    "source_project": "project-003-gear-assemblies-qa"
+  },
+  "study_inputs": {
+    "expanded_plan_sha256": "27071d53d11cc9846f9c6c5fe4330aac5a4ffa3969709ee0c49db0dea6d2d35d",
+    "task_manifest_sha256": "297b637d5393df3ebce3d33cb9eeaea3aef17d05566ea23625b31383c996e41e",
+    "scoring_manifest_sha256": "2d5814139b9866549862c77f11a962a2df2749fc79f959f588e13f6cb9e1066d"
+  },
+  "model_access": {
+    "qwen3.7-plus_checked_at": "2026-08-16T17:18:00-04:00",
+    "anthropic_catalog_checked_at": "2026-08-16T21:18:15.6379565Z",
+    "credentials_included": false
+  }
+}

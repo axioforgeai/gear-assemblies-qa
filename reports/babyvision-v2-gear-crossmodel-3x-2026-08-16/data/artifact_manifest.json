@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-17T00:08:08.393254+00:00",
+  "run_id": "gear-crossmodel-3x-20260816-1727",
+  "artifacts": {
+    "gear_matrix_by_question_type.csv": {
+      "sha256": "b8d4bd8c6de8d6c21b4fcc89d0f4b21a8d0e0f934a50f674e68b2fb114f3c99a",
+      "bytes": 1746
+    },
+    "gear_matrix_by_replicate.csv": {
+      "sha256": "f1a77cf4bab3e1e4a8fe4975c847bdca1c058dc3c117ca6865f5581fa0230e06",
+      "bytes": 1618
+    },
+    "gear_matrix_incorrect_audit.csv": {
+      "sha256": "77b2f353b76bcfd1c135d48e8e3881aa9f906be403cf935cde666f83ac8f8185",
+      "bytes": 49050
+    },
+    "gear_matrix_pairwise.csv": {
+      "sha256": "a5bd779006859f2403a139cf59521bc50cc2badd5106100d3f80391dee78e6b3",
+      "bytes": 765
+    },
+    "gear_matrix_question_profiles.csv": {
+      "sha256": "5297a25dc1e9e230b2a1569f637c1396197523bf54d1928d5cb98aada36fcbbe",
+      "bytes": 8778
+    },
+    "gear_matrix_summary.json": {
+      "sha256": "9b21fae21aa3815c05f00cf5a169169fee62a153d077cb482fadc2239882e198",
+      "bytes": 37645
+    },
+    "gear_matrix_trials.jsonl": {
+      "sha256": "4d370e4058e69d6f1ddc78643b37cff632a98a7da9d8028b5afb459e73bcf0bd",
+      "bytes": 425327
+    }
+  }
+}

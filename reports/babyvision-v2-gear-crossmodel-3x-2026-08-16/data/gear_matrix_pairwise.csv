@@ -1,0 +1,4 @@
+left_model,left_label,right_model,right_label,paired_trials,both_correct,left_only_correct,right_only_correct,both_incorrect,correctness_agreement_pct,accuracy_difference_right_minus_left_pp,question_cluster_bootstrap_95_ci_pp,mcnemar_exact_two_sided_p
+qwen3.7-plus,Qwen 3.7 Plus,claude-opus-5,Claude Opus 5,99,19,3,44,33,52.525252525252526,41.41414141414141,"[24.242424242424242, 58.58585858585859]",2.4647306418046355e-10
+qwen3.7-plus,Qwen 3.7 Plus,claude-fable-5,Claude Fable 5,99,19,3,40,37,56.56565656565657,37.37373737373738,"[21.21212121212121, 53.535353535353536]",3.0213413992896676e-09
+claude-opus-5,Claude Opus 5,claude-fable-5,Claude Fable 5,99,55,8,4,32,87.87878787878788,-4.040404040404041,"[-11.111111111111105, 1.0101010101010166]",0.3876953125

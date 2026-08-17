@@ -1,0 +1,1937 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-14T19:06:23.6044589-04:00",
+  "source_repository": "https://github.com/axioforgeai/gear-assemblies-qa",
+  "source_head": "3b5b2eda304dc66d8c513e0e89492a7f861e2fe3",
+  "scope": "base packages only; hidden and dot-prefixed paths excluded",
+  "pipeline": "BabyVision-v2 cc2d-6",
+  "tasks": 33,
+  "images": 198,
+  "question_type_counts": {
+    "axis_angle": 1,
+    "component_count": 8,
+    "gear_type": 1,
+    "tooth_count": 13,
+    "transmission_ratio": 10
+  },
+  "answer_type_counts": {
+    "discrete": 1,
+    "numeric": 32
+  },
+  "records": [
+    {
+      "task_id": "gear-base-model01-qa01",
+      "package_id": "Model01_QA01",
+      "question": "what is the transmission ratio of this gear train? Assume the worm is a single-start.",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "1f541f418520a0805526b3379eb66333f195349a1bc0549e26a500f7f8ab5b87",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "0bea18492c9ce4c85fb9caf3f926b76f741c96cfcffa84f0d0cb373b4056909d",
+          "bytes": 97460
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "c70d1ea9f7c8a95130e623bb261dd383e85b6135ccfa04449e7ffa388f51feba",
+          "bytes": 100571
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "f5ccce334d40060023e8d84c968c8adecae906ea774da915194f16f30d4474be",
+          "bytes": 89323
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "af80c86f7199bf4f1a77a5607404967ec9bf47dddcbab040e1b44b8a81191dca",
+          "bytes": 63644
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "532227cc88fb1dd53243da5129e7b9b50e8ccc50bb9c8bc787330d1fb8995d5a",
+          "bytes": 53069
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "c71e315cb5892508038bd309aaa5489fbd13a1fb341f295aa9a2ccf82e19eff6",
+          "bytes": 67151
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model01-qa02",
+      "package_id": "Model01_QA02",
+      "question": "What is the angle between the axes of the worm and the worm wheel?",
+      "question_type": "axis_angle",
+      "answer_type": "numeric",
+      "prompt_sha256": "d4befd242623a5408f38221ef0b6564e5f3e19c0ef7ffb2ac52a4101424ffc47",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "0bea18492c9ce4c85fb9caf3f926b76f741c96cfcffa84f0d0cb373b4056909d",
+          "bytes": 97460
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "c70d1ea9f7c8a95130e623bb261dd383e85b6135ccfa04449e7ffa388f51feba",
+          "bytes": 100571
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "f5ccce334d40060023e8d84c968c8adecae906ea774da915194f16f30d4474be",
+          "bytes": 89323
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "af80c86f7199bf4f1a77a5607404967ec9bf47dddcbab040e1b44b8a81191dca",
+          "bytes": 63644
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "532227cc88fb1dd53243da5129e7b9b50e8ccc50bb9c8bc787330d1fb8995d5a",
+          "bytes": 53069
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "c71e315cb5892508038bd309aaa5489fbd13a1fb341f295aa9a2ccf82e19eff6",
+          "bytes": 67151
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model02-qa01",
+      "package_id": "Model02_QA01",
+      "question": "what is the transmission ratio of the gear train?",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "0d701229745d2234e8a55b86e82410d859dc983d5609569c4b8086cec5cb6711",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "558cfae7792c96dfb92d64aaac009d0b114b15cdebfe700f8f3c23bf887b5b37",
+          "bytes": 103460
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "8b703728afa5603c7aeab15441f9f1c873ea0674789bbe05188dea1c8fb91dca",
+          "bytes": 113892
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "94ce5f718d168d8975869ee577885de12630052b6fc591de1686b35e08d68598",
+          "bytes": 111462
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fb39079ef9e363a260db758ede3ed120f1cc21a007f4357e013de140fdbceff8",
+          "bytes": 36851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9509a1cd77c83966feee7a1102c84223c8d6d005e85b2529aacf57f38ddece70",
+          "bytes": 42595
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "b42dd3cd65b2c7e0f6731b9c03e653c3313e8b902f74cc807c7067c9645b2bdf",
+          "bytes": 69430
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model02-qa02",
+      "package_id": "Model02_QA02",
+      "question": "How many support brackets are there in this assembly?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "fa7d90e6ec6db520ad71f35a2bddc9a3fe7329facaca7947cf723b237846cf04",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "558cfae7792c96dfb92d64aaac009d0b114b15cdebfe700f8f3c23bf887b5b37",
+          "bytes": 103460
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "8b703728afa5603c7aeab15441f9f1c873ea0674789bbe05188dea1c8fb91dca",
+          "bytes": 113892
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "94ce5f718d168d8975869ee577885de12630052b6fc591de1686b35e08d68598",
+          "bytes": 111462
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fb39079ef9e363a260db758ede3ed120f1cc21a007f4357e013de140fdbceff8",
+          "bytes": 36851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9509a1cd77c83966feee7a1102c84223c8d6d005e85b2529aacf57f38ddece70",
+          "bytes": 42595
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "b42dd3cd65b2c7e0f6731b9c03e653c3313e8b902f74cc807c7067c9645b2bdf",
+          "bytes": 69430
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model02-qa03",
+      "package_id": "Model02_QA03",
+      "question": "How many distinct parts are there in this assembly?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "15af38cab96c59aa2a2144fdaebdbf5cfc45c4dde1ed256265bf1d428b35fc7c",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "558cfae7792c96dfb92d64aaac009d0b114b15cdebfe700f8f3c23bf887b5b37",
+          "bytes": 103460
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "8b703728afa5603c7aeab15441f9f1c873ea0674789bbe05188dea1c8fb91dca",
+          "bytes": 113892
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "94ce5f718d168d8975869ee577885de12630052b6fc591de1686b35e08d68598",
+          "bytes": 111462
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fb39079ef9e363a260db758ede3ed120f1cc21a007f4357e013de140fdbceff8",
+          "bytes": 36851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9509a1cd77c83966feee7a1102c84223c8d6d005e85b2529aacf57f38ddece70",
+          "bytes": 42595
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "b42dd3cd65b2c7e0f6731b9c03e653c3313e8b902f74cc807c7067c9645b2bdf",
+          "bytes": 69430
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model03-qa01",
+      "package_id": "Model03_QA01",
+      "question": "what is the transmission ratio of this planetary gear train? Assume the sun gear is the input, ring gear is fixed. And carrier is the output.",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "9f9067bd4eba0b8732fd56b53e36edc0362ab0cd6eb028326729c8e7b3088b46",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "52a485de3644743c964cb8fba4aa49b33b6bce886d080185f6d8bb6168fcf5f1",
+          "bytes": 110624
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "44edc4d2fbdb9fced71f105fc619d010244333ce5733624077c3b5f36277bb3b",
+          "bytes": 109779
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "fb2118e5fb6b31bfcb25f1e0b33b992fab35be603098710c9ca8107dde5b8bac",
+          "bytes": 109997
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bbddc02a1460fa638cd1c0e7bedea4a576f0cb0232577b74fa3e4ca920a9cb6d",
+          "bytes": 72131
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "32778d0ea3a3442df4928ebee7f887803774a49ff3e5c8f05ae50afa29bf92cf",
+          "bytes": 20084
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "906634d34f5d20a7fed8da28aa8b2de95cf6b2f2028c9014699b0e1e2280764c",
+          "bytes": 19611
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model03-qa02",
+      "package_id": "Model03_QA02",
+      "question": "What is the tooth number of the ring gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "2a531344b38f2d92d14c6245b74bcd9c4c6cdcff118dc880f4f48f7a691484ae",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "52a485de3644743c964cb8fba4aa49b33b6bce886d080185f6d8bb6168fcf5f1",
+          "bytes": 110624
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "44edc4d2fbdb9fced71f105fc619d010244333ce5733624077c3b5f36277bb3b",
+          "bytes": 109779
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "fb2118e5fb6b31bfcb25f1e0b33b992fab35be603098710c9ca8107dde5b8bac",
+          "bytes": 109997
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bbddc02a1460fa638cd1c0e7bedea4a576f0cb0232577b74fa3e4ca920a9cb6d",
+          "bytes": 72131
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "32778d0ea3a3442df4928ebee7f887803774a49ff3e5c8f05ae50afa29bf92cf",
+          "bytes": 20084
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "906634d34f5d20a7fed8da28aa8b2de95cf6b2f2028c9014699b0e1e2280764c",
+          "bytes": 19611
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model03-qa03",
+      "package_id": "Model03_QA03",
+      "question": "What is tooth number of the sun gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "3177f7fa3a7a1dcc10851915c25a14309c41df6660e1bcb442cc9c3f69608433",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "52a485de3644743c964cb8fba4aa49b33b6bce886d080185f6d8bb6168fcf5f1",
+          "bytes": 110624
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "44edc4d2fbdb9fced71f105fc619d010244333ce5733624077c3b5f36277bb3b",
+          "bytes": 109779
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "fb2118e5fb6b31bfcb25f1e0b33b992fab35be603098710c9ca8107dde5b8bac",
+          "bytes": 109997
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bbddc02a1460fa638cd1c0e7bedea4a576f0cb0232577b74fa3e4ca920a9cb6d",
+          "bytes": 72131
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "32778d0ea3a3442df4928ebee7f887803774a49ff3e5c8f05ae50afa29bf92cf",
+          "bytes": 20084
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "906634d34f5d20a7fed8da28aa8b2de95cf6b2f2028c9014699b0e1e2280764c",
+          "bytes": 19611
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model03-qa04",
+      "package_id": "Model03_QA04",
+      "question": "How many planet gears are there in this planetary gear train?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "45e746b4059371f4c47d47e0150248f8c0d4882e03499e62df361848a5fb7a0e",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "52a485de3644743c964cb8fba4aa49b33b6bce886d080185f6d8bb6168fcf5f1",
+          "bytes": 110624
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "44edc4d2fbdb9fced71f105fc619d010244333ce5733624077c3b5f36277bb3b",
+          "bytes": 109779
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "fb2118e5fb6b31bfcb25f1e0b33b992fab35be603098710c9ca8107dde5b8bac",
+          "bytes": 109997
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bbddc02a1460fa638cd1c0e7bedea4a576f0cb0232577b74fa3e4ca920a9cb6d",
+          "bytes": 72131
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "32778d0ea3a3442df4928ebee7f887803774a49ff3e5c8f05ae50afa29bf92cf",
+          "bytes": 20084
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "906634d34f5d20a7fed8da28aa8b2de95cf6b2f2028c9014699b0e1e2280764c",
+          "bytes": 19611
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model04-qa01",
+      "package_id": "Model04_QA01",
+      "question": "what is the transmission ratio of this planetary gear? Assume sun input, ring fixed, carrier output. Round up to the nearest integer.",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "240e37674600f14e2f8f8d66537452acceca5db8c06bb78b1eda0e8ebeec6a78",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4297d26e2557c2950f16e221dbdb58373d14893a2952a45506632b71536fc533",
+          "bytes": 129569
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "d6c5b7a40e75fa27481ab941b110506748c8a31d7fb60e68d7f01e76c8393222",
+          "bytes": 127992
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "69daf5c7148fb8e20c2e858f372e65521b010c0cab2e54c70b6cba48c81ac80f",
+          "bytes": 155963
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "d6d54d4ee7ef3775709a17edb692a6843ff3a74ffb866140f5e73d1a8d6cb8c6",
+          "bytes": 90561
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "1f6f63eb9fea493f07cb06a685e026d1585ad20815477086181636d1de6af8c9",
+          "bytes": 36986
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "680f33fb6296b98aeb1dec097fe25d1a48d96a09d0c4c1cc6549d52946a1c0f3",
+          "bytes": 37008
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model04-qa02",
+      "package_id": "Model04_QA02",
+      "question": "What is the tooth number of the ring gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "2a531344b38f2d92d14c6245b74bcd9c4c6cdcff118dc880f4f48f7a691484ae",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4297d26e2557c2950f16e221dbdb58373d14893a2952a45506632b71536fc533",
+          "bytes": 129569
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "d6c5b7a40e75fa27481ab941b110506748c8a31d7fb60e68d7f01e76c8393222",
+          "bytes": 127992
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "69daf5c7148fb8e20c2e858f372e65521b010c0cab2e54c70b6cba48c81ac80f",
+          "bytes": 155963
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "d6d54d4ee7ef3775709a17edb692a6843ff3a74ffb866140f5e73d1a8d6cb8c6",
+          "bytes": 90561
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "1f6f63eb9fea493f07cb06a685e026d1585ad20815477086181636d1de6af8c9",
+          "bytes": 36986
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "680f33fb6296b98aeb1dec097fe25d1a48d96a09d0c4c1cc6549d52946a1c0f3",
+          "bytes": 37008
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model04-qa03",
+      "package_id": "Model04_QA03",
+      "question": "What is tooth number of the sun gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "3177f7fa3a7a1dcc10851915c25a14309c41df6660e1bcb442cc9c3f69608433",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4297d26e2557c2950f16e221dbdb58373d14893a2952a45506632b71536fc533",
+          "bytes": 129569
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "d6c5b7a40e75fa27481ab941b110506748c8a31d7fb60e68d7f01e76c8393222",
+          "bytes": 127992
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "69daf5c7148fb8e20c2e858f372e65521b010c0cab2e54c70b6cba48c81ac80f",
+          "bytes": 155963
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "d6d54d4ee7ef3775709a17edb692a6843ff3a74ffb866140f5e73d1a8d6cb8c6",
+          "bytes": 90561
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "1f6f63eb9fea493f07cb06a685e026d1585ad20815477086181636d1de6af8c9",
+          "bytes": 36986
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "680f33fb6296b98aeb1dec097fe25d1a48d96a09d0c4c1cc6549d52946a1c0f3",
+          "bytes": 37008
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model04-qa04",
+      "package_id": "Model04_QA04",
+      "question": "What is the tooth number of planet gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "2c36830f27649f8c55645e2861eb4b9c3799864c6ed57cdf4ef7854f3189ad4d",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4297d26e2557c2950f16e221dbdb58373d14893a2952a45506632b71536fc533",
+          "bytes": 129569
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "d6c5b7a40e75fa27481ab941b110506748c8a31d7fb60e68d7f01e76c8393222",
+          "bytes": 127992
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "69daf5c7148fb8e20c2e858f372e65521b010c0cab2e54c70b6cba48c81ac80f",
+          "bytes": 155963
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "d6d54d4ee7ef3775709a17edb692a6843ff3a74ffb866140f5e73d1a8d6cb8c6",
+          "bytes": 90561
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "1f6f63eb9fea493f07cb06a685e026d1585ad20815477086181636d1de6af8c9",
+          "bytes": 36986
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "680f33fb6296b98aeb1dec097fe25d1a48d96a09d0c4c1cc6549d52946a1c0f3",
+          "bytes": 37008
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model04-qa05",
+      "package_id": "Model04_QA05",
+      "question": "How many planet gears are there in this planetary gear train?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "45e746b4059371f4c47d47e0150248f8c0d4882e03499e62df361848a5fb7a0e",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4297d26e2557c2950f16e221dbdb58373d14893a2952a45506632b71536fc533",
+          "bytes": 129569
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "d6c5b7a40e75fa27481ab941b110506748c8a31d7fb60e68d7f01e76c8393222",
+          "bytes": 127992
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "69daf5c7148fb8e20c2e858f372e65521b010c0cab2e54c70b6cba48c81ac80f",
+          "bytes": 155963
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "d6d54d4ee7ef3775709a17edb692a6843ff3a74ffb866140f5e73d1a8d6cb8c6",
+          "bytes": 90561
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "1f6f63eb9fea493f07cb06a685e026d1585ad20815477086181636d1de6af8c9",
+          "bytes": 36986
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "680f33fb6296b98aeb1dec097fe25d1a48d96a09d0c4c1cc6549d52946a1c0f3",
+          "bytes": 37008
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model05-qa01",
+      "package_id": "Model05_QA01",
+      "question": "What is the tooth number of the smaller gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "ebf7060a0df48eb3c6263b3ea1d90fa27dd2d2c947b9830229cea1b77c975ce5",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4a8f43f5e2c2cc6cc8397552a4f7c41c3c6947135a5f429a949cf76016ca481a",
+          "bytes": 123871
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "6b7865b52cbb07e5526cd676830d9cf29f7bacc7276859d5f6e283328d492572",
+          "bytes": 123807
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d3b2bf11aeb96e4c5127f4969244c72e3469ddf934dee069f7bd40180be03297",
+          "bytes": 112628
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bce6bb98889f6f9ad8f2fd8eb126acc0fc16d45b5525213492181466b9c10457",
+          "bytes": 86677
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "79c475ba98f47f872abba300a2ee6016e0b82f489bedff92bf1350fa3532f6cb",
+          "bytes": 39310
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9194f36c6b00632c5db70066bfeeede61fe1ecd7d7d91276a75e91690d30dea5",
+          "bytes": 41760
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model05-qa02",
+      "package_id": "Model05_QA02",
+      "question": "What the tooth number of the larger gear.",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "36e17d68358f3fc786c41b0c2527e16562f4ea2b1dfb14ae087838d6dac0ad71",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4a8f43f5e2c2cc6cc8397552a4f7c41c3c6947135a5f429a949cf76016ca481a",
+          "bytes": 123871
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "6b7865b52cbb07e5526cd676830d9cf29f7bacc7276859d5f6e283328d492572",
+          "bytes": 123807
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d3b2bf11aeb96e4c5127f4969244c72e3469ddf934dee069f7bd40180be03297",
+          "bytes": 112628
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bce6bb98889f6f9ad8f2fd8eb126acc0fc16d45b5525213492181466b9c10457",
+          "bytes": 86677
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "79c475ba98f47f872abba300a2ee6016e0b82f489bedff92bf1350fa3532f6cb",
+          "bytes": 39310
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9194f36c6b00632c5db70066bfeeede61fe1ecd7d7d91276a75e91690d30dea5",
+          "bytes": 41760
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model05-qa03",
+      "package_id": "Model05_QA03",
+      "question": "what is the transmission ratio of this gear train?",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "067890c39f05403e034d35094cfe392043396b13c2670fb191a0006c26ffd211",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "4a8f43f5e2c2cc6cc8397552a4f7c41c3c6947135a5f429a949cf76016ca481a",
+          "bytes": 123871
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "6b7865b52cbb07e5526cd676830d9cf29f7bacc7276859d5f6e283328d492572",
+          "bytes": 123807
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d3b2bf11aeb96e4c5127f4969244c72e3469ddf934dee069f7bd40180be03297",
+          "bytes": 112628
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "bce6bb98889f6f9ad8f2fd8eb126acc0fc16d45b5525213492181466b9c10457",
+          "bytes": 86677
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "79c475ba98f47f872abba300a2ee6016e0b82f489bedff92bf1350fa3532f6cb",
+          "bytes": 39310
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9194f36c6b00632c5db70066bfeeede61fe1ecd7d7d91276a75e91690d30dea5",
+          "bytes": 41760
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model06-qa01",
+      "package_id": "Model06_QA01",
+      "question": "How many bearings are there is in this gearbox?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "28cbfabde663a9452dee21f6c3ea5e7d3d934c0acac617b9dff8944d5aabb5fb",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "770073d981ea7da8b951e8c52e6dc4d957e0e64fde4172d3bf84e2a89487093e",
+          "bytes": 140905
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "eb412060f2e69babd132c1294a24df321464705293fc306715f040eb6e223dcc",
+          "bytes": 136746
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "17750a47a881700a3bc33a49b878979a15a8ab33b0cbfc4bf095c6984f659621",
+          "bytes": 78135
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "3b65f9088a0d62b22da743653015e4dcda939f72d66bf2af8b51be660561ec2d",
+          "bytes": 42851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9ce8c8b4ed4cb25aacea9fcc09a43f7e92d697a242260f4d50253828b54e8d42",
+          "bytes": 46807
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "526c5bb16b6b96f51daf89e0f39512bdbfedf86a9be94c18fb4c275054fc593d",
+          "bytes": 27416
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model06-qa02",
+      "package_id": "Model06_QA02",
+      "question": "What the tooth number of the smaller gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "40397cc5c6ecba0e4bf6e7c9fa1bbb496b3c7638adbfb49b890e0074a3a018ca",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "770073d981ea7da8b951e8c52e6dc4d957e0e64fde4172d3bf84e2a89487093e",
+          "bytes": 140905
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "eb412060f2e69babd132c1294a24df321464705293fc306715f040eb6e223dcc",
+          "bytes": 136746
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "17750a47a881700a3bc33a49b878979a15a8ab33b0cbfc4bf095c6984f659621",
+          "bytes": 78135
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "3b65f9088a0d62b22da743653015e4dcda939f72d66bf2af8b51be660561ec2d",
+          "bytes": 42851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9ce8c8b4ed4cb25aacea9fcc09a43f7e92d697a242260f4d50253828b54e8d42",
+          "bytes": 46807
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "526c5bb16b6b96f51daf89e0f39512bdbfedf86a9be94c18fb4c275054fc593d",
+          "bytes": 27416
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model06-qa03",
+      "package_id": "Model06_QA03",
+      "question": "What is the tooth number of the larger gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "948e20cc9d133bdfe1407dfe8b83e7938e8fa17deea180aab3b4418a818acc1c",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "770073d981ea7da8b951e8c52e6dc4d957e0e64fde4172d3bf84e2a89487093e",
+          "bytes": 140905
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "eb412060f2e69babd132c1294a24df321464705293fc306715f040eb6e223dcc",
+          "bytes": 136746
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "17750a47a881700a3bc33a49b878979a15a8ab33b0cbfc4bf095c6984f659621",
+          "bytes": 78135
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "3b65f9088a0d62b22da743653015e4dcda939f72d66bf2af8b51be660561ec2d",
+          "bytes": 42851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9ce8c8b4ed4cb25aacea9fcc09a43f7e92d697a242260f4d50253828b54e8d42",
+          "bytes": 46807
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "526c5bb16b6b96f51daf89e0f39512bdbfedf86a9be94c18fb4c275054fc593d",
+          "bytes": 27416
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model06-qa04",
+      "package_id": "Model06_QA04",
+      "question": "What is the transmission ratio of this gear box?",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "521738a1f9c38db1b48b5701d704a1cb7f74dcb3f3dcd4fa403fda1313aec9f3",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "770073d981ea7da8b951e8c52e6dc4d957e0e64fde4172d3bf84e2a89487093e",
+          "bytes": 140905
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "eb412060f2e69babd132c1294a24df321464705293fc306715f040eb6e223dcc",
+          "bytes": 136746
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "17750a47a881700a3bc33a49b878979a15a8ab33b0cbfc4bf095c6984f659621",
+          "bytes": 78135
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "3b65f9088a0d62b22da743653015e4dcda939f72d66bf2af8b51be660561ec2d",
+          "bytes": 42851
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "9ce8c8b4ed4cb25aacea9fcc09a43f7e92d697a242260f4d50253828b54e8d42",
+          "bytes": 46807
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "526c5bb16b6b96f51daf89e0f39512bdbfedf86a9be94c18fb4c275054fc593d",
+          "bytes": 27416
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model07-qa01",
+      "package_id": "Model07_QA01",
+      "question": "How many gears are there in this gear box?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "cf2fd2a7a7f5ac018f768f958129ee4471a3a7adaef1c3a8aae357f1553fd8d0",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "88c9739d771d6580488b1895b02ed104c97fffd8e0efe39de267b3b5648588ac",
+          "bytes": 61605
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "1fbe38e2bd25748ab8a5f8d363a94940ae111506b8847aa27699f55f18161091",
+          "bytes": 67507
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d5092d320d4904d2b6e315670a19190f1849d5203e6a4e2f1b8a93f3e0870d86",
+          "bytes": 83085
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "653ccb19cb4199500dda627beae668300068743de59b27e1f828e6dd59e62c2d",
+          "bytes": 27654
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "808e12bfd29e0babe3f5557a4450febeb716e67a83839e68b82af100b2ef9928",
+          "bytes": 25648
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9cae2137d1141ce7df68cda065d0922f4a694c3937fd49e01a0058f0bef3577c",
+          "bytes": 41674
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model07-qa02",
+      "package_id": "Model07_QA02",
+      "question": "How many shafts are there in this gear box?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "7cd01e3fc8bf09ea696d5b56c5d6bd9fa703acb638af801726ba17db4170dc80",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "88c9739d771d6580488b1895b02ed104c97fffd8e0efe39de267b3b5648588ac",
+          "bytes": 61605
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "1fbe38e2bd25748ab8a5f8d363a94940ae111506b8847aa27699f55f18161091",
+          "bytes": 67507
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d5092d320d4904d2b6e315670a19190f1849d5203e6a4e2f1b8a93f3e0870d86",
+          "bytes": 83085
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "653ccb19cb4199500dda627beae668300068743de59b27e1f828e6dd59e62c2d",
+          "bytes": 27654
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "808e12bfd29e0babe3f5557a4450febeb716e67a83839e68b82af100b2ef9928",
+          "bytes": 25648
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9cae2137d1141ce7df68cda065d0922f4a694c3937fd49e01a0058f0bef3577c",
+          "bytes": 41674
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model07-qa03",
+      "package_id": "Model07_QA03",
+      "question": "What is the transmission ratio of this gear train?",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "2328ec299d7fd7562fb8bc519d7814e4c7548616bea3de2d28e0beb3b722fb75",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "88c9739d771d6580488b1895b02ed104c97fffd8e0efe39de267b3b5648588ac",
+          "bytes": 61605
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "1fbe38e2bd25748ab8a5f8d363a94940ae111506b8847aa27699f55f18161091",
+          "bytes": 67507
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d5092d320d4904d2b6e315670a19190f1849d5203e6a4e2f1b8a93f3e0870d86",
+          "bytes": 83085
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "653ccb19cb4199500dda627beae668300068743de59b27e1f828e6dd59e62c2d",
+          "bytes": 27654
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "808e12bfd29e0babe3f5557a4450febeb716e67a83839e68b82af100b2ef9928",
+          "bytes": 25648
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "9cae2137d1141ce7df68cda065d0922f4a694c3937fd49e01a0058f0bef3577c",
+          "bytes": 41674
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model08-qa01",
+      "package_id": "Model08_QA01",
+      "question": "what the tooth number of the smaller gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "871315d3b78df8703e930e0886f7dd12f5fca3cfc67447736819ca0301bd70bf",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "89c2cda5454106bff724d7ce94d84604e73133f96aa558e1066b6868ea043dea",
+          "bytes": 61296
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "7cad62f97f4db16fb5941bfef2aa92fba6ebd819b3a7df965bcbde5cf9c12620",
+          "bytes": 62837
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "76603f5e001919e1bd6ab421a77a2137026ad906ac9983ee21fb2f70430f9639",
+          "bytes": 51896
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "b6624a4156b2115d0bac149763905d045fdb613b6119de263ecf5a4a8f293237",
+          "bytes": 31110
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "14234ae1e86f20d0a032ee494839dc69058e6bc52dedb469b1eff9f49f284eac",
+          "bytes": 37635
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "e938fbd0638a5dcf2c2d31985830090c98e7279850a8f31f658df51a7325a8f3",
+          "bytes": 27145
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model08-qa02",
+      "package_id": "Model08_QA02",
+      "question": "what the tooth number of the larger gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "10c9ef61b9c451cf667a2ac22d924a4d1001912d1599c28cdcc61079a2d7cf35",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "89c2cda5454106bff724d7ce94d84604e73133f96aa558e1066b6868ea043dea",
+          "bytes": 61296
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "7cad62f97f4db16fb5941bfef2aa92fba6ebd819b3a7df965bcbde5cf9c12620",
+          "bytes": 62837
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "76603f5e001919e1bd6ab421a77a2137026ad906ac9983ee21fb2f70430f9639",
+          "bytes": 51896
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "b6624a4156b2115d0bac149763905d045fdb613b6119de263ecf5a4a8f293237",
+          "bytes": 31110
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "14234ae1e86f20d0a032ee494839dc69058e6bc52dedb469b1eff9f49f284eac",
+          "bytes": 37635
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "e938fbd0638a5dcf2c2d31985830090c98e7279850a8f31f658df51a7325a8f3",
+          "bytes": 27145
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model08-qa03",
+      "package_id": "Model08_QA03",
+      "question": "What the transmission ratio of this gear box? Round to the first decimal place.",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "94c71230ffe892e307084a87a6aa225828ee13a95cb7e3e07e36dc421e8e9542",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "89c2cda5454106bff724d7ce94d84604e73133f96aa558e1066b6868ea043dea",
+          "bytes": 61296
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "7cad62f97f4db16fb5941bfef2aa92fba6ebd819b3a7df965bcbde5cf9c12620",
+          "bytes": 62837
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "76603f5e001919e1bd6ab421a77a2137026ad906ac9983ee21fb2f70430f9639",
+          "bytes": 51896
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "b6624a4156b2115d0bac149763905d045fdb613b6119de263ecf5a4a8f293237",
+          "bytes": 31110
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "14234ae1e86f20d0a032ee494839dc69058e6bc52dedb469b1eff9f49f284eac",
+          "bytes": 37635
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "e938fbd0638a5dcf2c2d31985830090c98e7279850a8f31f658df51a7325a8f3",
+          "bytes": 27145
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model08-qa04",
+      "package_id": "Model08_QA04",
+      "question": "What is the type of the gear shape? Spur, Helical, Bevel or Double Helical or others.",
+      "question_type": "gear_type",
+      "answer_type": "discrete",
+      "prompt_sha256": "dc39e156096c8441bc40ab21945052764503072e0e5ce796d084c1665486524c",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "89c2cda5454106bff724d7ce94d84604e73133f96aa558e1066b6868ea043dea",
+          "bytes": 61296
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "7cad62f97f4db16fb5941bfef2aa92fba6ebd819b3a7df965bcbde5cf9c12620",
+          "bytes": 62837
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "76603f5e001919e1bd6ab421a77a2137026ad906ac9983ee21fb2f70430f9639",
+          "bytes": 51896
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "b6624a4156b2115d0bac149763905d045fdb613b6119de263ecf5a4a8f293237",
+          "bytes": 31110
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "14234ae1e86f20d0a032ee494839dc69058e6bc52dedb469b1eff9f49f284eac",
+          "bytes": 37635
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "e938fbd0638a5dcf2c2d31985830090c98e7279850a8f31f658df51a7325a8f3",
+          "bytes": 27145
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model09-qa01",
+      "package_id": "Model09_QA01",
+      "question": "What is the tooth number of the sun gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "0e011485a2098bddd7f793051cfc714dc5c3558517b233dcf775ee4ee6f62f39",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "53bfd09b9394815b778e42ba17da8e53e5ef7129cb8e0241168527f976be8f5f",
+          "bytes": 107370
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "4e89dc9f595ccc3437647b82dda048e1127ba2d133243b15653035033130dfda",
+          "bytes": 156150
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "4b9770c4e84d305c44c24ba6282642cb8e6a31dfee361e41bcc3b8e7f436e806",
+          "bytes": 108070
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fe8cee3ab24d70fed4155ac9bf19b826921684e7306ad1525f525b23bebb6d05",
+          "bytes": 30567
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "438e22cdfaf32d6a458b71b782ca8b57104ca41c1d59043fdc5aaae059126bf9",
+          "bytes": 30446
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "d4ad0415a7e7103fe4612da1707aa8adde42a27e519a0bbf95cbe81833546d42",
+          "bytes": 153295
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model09-qa02",
+      "package_id": "Model09_QA02",
+      "question": "What is the transmission ratio of the gear box? Round to the first decimal place.",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "b331de827473504c5cf0db76737a5130fd70288b1ade66e66c6e4dea452ffa3c",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "53bfd09b9394815b778e42ba17da8e53e5ef7129cb8e0241168527f976be8f5f",
+          "bytes": 107370
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "4e89dc9f595ccc3437647b82dda048e1127ba2d133243b15653035033130dfda",
+          "bytes": 156150
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "4b9770c4e84d305c44c24ba6282642cb8e6a31dfee361e41bcc3b8e7f436e806",
+          "bytes": 108070
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fe8cee3ab24d70fed4155ac9bf19b826921684e7306ad1525f525b23bebb6d05",
+          "bytes": 30567
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "438e22cdfaf32d6a458b71b782ca8b57104ca41c1d59043fdc5aaae059126bf9",
+          "bytes": 30446
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "d4ad0415a7e7103fe4612da1707aa8adde42a27e519a0bbf95cbe81833546d42",
+          "bytes": 153295
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model09-qa03",
+      "package_id": "Model09_QA03",
+      "question": "What is the tooth number of the ring gear?",
+      "question_type": "tooth_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "2a531344b38f2d92d14c6245b74bcd9c4c6cdcff118dc880f4f48f7a691484ae",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "53bfd09b9394815b778e42ba17da8e53e5ef7129cb8e0241168527f976be8f5f",
+          "bytes": 107370
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "4e89dc9f595ccc3437647b82dda048e1127ba2d133243b15653035033130dfda",
+          "bytes": 156150
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "4b9770c4e84d305c44c24ba6282642cb8e6a31dfee361e41bcc3b8e7f436e806",
+          "bytes": 108070
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fe8cee3ab24d70fed4155ac9bf19b826921684e7306ad1525f525b23bebb6d05",
+          "bytes": 30567
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "438e22cdfaf32d6a458b71b782ca8b57104ca41c1d59043fdc5aaae059126bf9",
+          "bytes": 30446
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "d4ad0415a7e7103fe4612da1707aa8adde42a27e519a0bbf95cbe81833546d42",
+          "bytes": 153295
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model09-qa04",
+      "package_id": "Model09_QA04",
+      "question": "How many planet gears are there?",
+      "question_type": "component_count",
+      "answer_type": "numeric",
+      "prompt_sha256": "5c0be148fc1e87f85d3e034caf5b1e11495ec6c7f2562db2d19e7c24db63e874",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "53bfd09b9394815b778e42ba17da8e53e5ef7129cb8e0241168527f976be8f5f",
+          "bytes": 107370
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "4e89dc9f595ccc3437647b82dda048e1127ba2d133243b15653035033130dfda",
+          "bytes": 156150
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "4b9770c4e84d305c44c24ba6282642cb8e6a31dfee361e41bcc3b8e7f436e806",
+          "bytes": 108070
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "fe8cee3ab24d70fed4155ac9bf19b826921684e7306ad1525f525b23bebb6d05",
+          "bytes": 30567
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "438e22cdfaf32d6a458b71b782ca8b57104ca41c1d59043fdc5aaae059126bf9",
+          "bytes": 30446
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "d4ad0415a7e7103fe4612da1707aa8adde42a27e519a0bbf95cbe81833546d42",
+          "bytes": 153295
+        }
+      ]
+    },
+    {
+      "task_id": "gear-base-model10-qa01",
+      "package_id": "Model10_QA01",
+      "question": "what is the transmission ratio of this gear train?",
+      "question_type": "transmission_ratio",
+      "answer_type": "numeric",
+      "prompt_sha256": "067890c39f05403e034d35094cfe392043396b13c2670fb191a0006c26ffd211",
+      "views": [
+        {
+          "index": 0,
+          "view": "iso_front_right_top",
+          "label": "Isometric front-right-top",
+          "source_name": "iso_front_right_top.png",
+          "sha256": "3c14325abee64841b72f6c3a9d0865fd5efbd157e48b23fba9a3eac4007a8fac",
+          "bytes": 99996
+        },
+        {
+          "index": 1,
+          "view": "iso_front_left_top",
+          "label": "Isometric front-left-top",
+          "source_name": "iso_front_left_top.png",
+          "sha256": "24773b163f7c5da8db8b5e621297a3b727971c83f0b832c683b9682561216aa4",
+          "bytes": 124321
+        },
+        {
+          "index": 2,
+          "view": "iso_rear_right_top",
+          "label": "Isometric rear-right-top",
+          "source_name": "iso_rear_right_top.png",
+          "sha256": "d997b1a95d8d06a607c2aa202e9a00396ed366a795816826380cbca07afd464c",
+          "bytes": 93636
+        },
+        {
+          "index": 3,
+          "view": "front",
+          "label": "Front",
+          "source_name": "front.png",
+          "sha256": "69e8a8d013e7d80795964a3e6a89ca338b3b7ed9983145da61a0903c6742dc8a",
+          "bytes": 70512
+        },
+        {
+          "index": 4,
+          "view": "top",
+          "label": "Top",
+          "source_name": "top.png",
+          "sha256": "c4a732ff58574d01925ac354bdd8227c50169aca8625c7371f9419a3defda9cb",
+          "bytes": 56975
+        },
+        {
+          "index": 5,
+          "view": "left",
+          "label": "Left",
+          "source_name": "left.png",
+          "sha256": "2b902ee80fb3d017f430b3848bd1b9d94484472cfa8b77ae1915fe82f9c690fe",
+          "bytes": 83194
+        }
+      ]
+    }
+  ]
+}

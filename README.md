@@ -43,6 +43,10 @@ hidden/Model02_01_Hidden/
   ...
 ```
 
+## Evaluation Reports
+
+- [BabyVision-v2 three-model, three-replicate public-base evaluation](reports/babyvision-v2-gear-crossmodel-3x-2026-08-16/README.md): 297 strict attempts comparing Qwen 3.7 Plus, Claude Opus 5, and Claude Fable 5 under the same six-view, no-MCP condition. The bundle includes the [PDF report](reports/babyvision-v2-gear-crossmodel-3x-2026-08-16/babyvision_gear_crossmodel_report.pdf), [HTML report](reports/babyvision-v2-gear-crossmodel-3x-2026-08-16/babyvision_gear_crossmodel_report.html), complete incorrect-answer audit, trial ledger, and provenance receipts.
+
 ## Naming
 
 `Model##` follows the one-indexed model order from the source assembly

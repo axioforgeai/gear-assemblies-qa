@@ -1,0 +1,83 @@
+﻿{
+    "schema_version":  1,
+    "checked_at":  "2026-08-16T17:26:52.9683544-04:00",
+    "status":  "PASS",
+    "plan_sha256":  "27071d53d11cc9846f9c6c5fe4330aac5a4ffa3969709ee0c49db0dea6d2d35d",
+    "planned_analysis_trials":  297,
+    "planned_new_trials":  231,
+    "models":  [
+                   "qwen3.7-plus",
+                   "claude-opus-5",
+                   "claude-fable-5"
+               ],
+    "live_model_checks":  {
+                              "qwen":  {
+                                           "success":  true,
+                                           "requested":  "qwen3.7-plus",
+                                           "observed":  "qwen3.7-plus",
+                                           "checked_at":  "2026-08-16T17:18:00-04:00"
+                                       },
+                              "anthropic":  {
+                                                "success":  true,
+                                                "exact_ids":  [
+                                                                  "claude-opus-5",
+                                                                  "claude-fable-5"
+                                                              ],
+                                                "checked_at":  "2026-08-16T21:18:15.6379565Z"
+                                            }
+                          },
+    "credentials":  {
+                        "qwen":  "unique DashScope-format record; secret omitted",
+                        "anthropic":  "unique sk-ant-api record; secret omitted"
+                    },
+    "dataset":  {
+                    "tasks":  33,
+                    "views":  198,
+                    "raw_asset_files":  0,
+                    "hidden_or_dot_prefixed_paths":  0,
+                    "missing_required_files":  0,
+                    "task_manifest_sha256":  "297b637d5393df3ebce3d33cb9eeaea3aef17d05566ea23625b31383c996e41e",
+                    "scoring_manifest_sha256":  "2d5814139b9866549862c77f11a962a2df2749fc79f959f588e13f6cb9e1066d",
+                    "existing_fable_trials":  66
+                },
+    "mcp_arm":  {
+                    "status":  "blocked_by_missing_source_asset",
+                    "runnable":  false,
+                    "reason":  "The frozen public base packages contain rendered PNGs but no STEP, assembly, mesh, or scene asset. Reconstructing geometry from images would change the evidence and confound an MCP treatment comparison."
+                },
+    "repository":  {
+                       "head":  "e93ce30fcd6aa0ce3ffa19f3d5ab6b7d42072a2f",
+                       "working_diff_sha256":  "272fc21a18382bfb575b37b519676a61ca47722148a868c05288e2a8d64cb105"
+                   },
+    "docker":  {
+                   "cpus":  16,
+                   "memory_bytes":  16300789760,
+                   "images":  [
+                                  {
+                                      "name":  "sci3d-claude-code-2d:latest",
+                                      "id":  "sha256:fb1dc90cde6d85521b5a3b3a7f2c1b84e77389990281ab124de42b27cbca336e"
+                                  },
+                                  {
+                                      "name":  "sci3d-scorer:latest",
+                                      "id":  "sha256:75416d30185b4897b8345121da3a52018dd41b37261bbe37c5251b13195527d9"
+                                  }
+                              ]
+               },
+    "harbor_config_checks":  [
+                                 {
+                                     "model":  "qwen3.7-plus",
+                                     "resolved":  true
+                                 },
+                                 {
+                                     "model":  "claude-opus-5",
+                                     "resolved":  true
+                                 },
+                                 {
+                                     "model":  "claude-fable-5",
+                                     "resolved":  true
+                                 }
+                             ],
+    "automatic_retries":  0,
+    "fallbacks_requested":  0,
+    "provider_list_price_soft_ceiling_new_runs_usd":  200
+}

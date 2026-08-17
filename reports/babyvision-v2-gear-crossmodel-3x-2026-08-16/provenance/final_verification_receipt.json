@@ -1,0 +1,17 @@
+﻿{
+    "schema_version":  1,
+    "checked_at":  "2026-08-16T20:08:31.6778022-04:00",
+    "status":  "PASS",
+    "run_id":  "gear-crossmodel-3x-20260816-1727",
+    "worker_statuses":  7,
+    "aggregate_trials":  297,
+    "trials_per_model":  99,
+    "frozen_hashes":  {
+                          "expanded_plan":  "27071d53d11cc9846f9c6c5fe4330aac5a4ffa3969709ee0c49db0dea6d2d35d",
+                          "task_manifest":  "297b637d5393df3ebce3d33cb9eeaea3aef17d05566ea23625b31383c996e41e",
+                          "scoring_manifest":  "2d5814139b9866549862c77f11a962a2df2749fc79f959f588e13f6cb9e1066d"
+                      },
+    "credential_like_matches":  0,
+    "summary_sha256":  "9b21fae21aa3815c05f00cf5a169169fee62a153d077cb482fadc2239882e198",
+    "trials_sha256":  "4d370e4058e69d6f1ddc78643b37cff632a98a7da9d8028b5afb459e73bcf0bd"
+}
